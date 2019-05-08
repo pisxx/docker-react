@@ -1,0 +1,9 @@
+sudo: require
+services:
+  - docker
+
+before_install:
+  - docker build -t pisxx/docker-react:latest -f Dockerfile.dev.
+
+script:
+  - docker run pisxx/docker-react:latest npm run test -- --coverage
